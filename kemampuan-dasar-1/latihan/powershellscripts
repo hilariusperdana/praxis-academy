@@ -1,0 +1,31 @@
+PS C:\Users\Hilarius Perdana> & "C:\Users\Hilarius Perdana\Desktop\coba"
+cobacobayuk
+
+PS C:\Users\Hilarius Perdana> Get-WmiObject -Class Win32_OperatingSystem –ComputerName localhost |
+Select-Object -Property CSName,LastBootUpTime
+
+CSName          LastBootUpTime           
+------          --------------           
+DESKTOP-DF14PID 20210202224859.892593+420
+
+PS C:\Users\Hilarius Perdana> Get-WmiObject -Class Win32_OperatingSystem –ComputerName localhost |
+Select-Object -Property CSName,@{n=”Last Booted”;
+
+e={[Management.ManagementDateTimeConverter]::ToDateTime($_.LastBootUpTime)}}
+
+CSName          Last Booted        
+------          -----------        
+DESKTOP-DF14PID 02/02/2021 22.48.59
+
+PS C:\Users\Hilarius Perdana> & 'C:\Users\Hilarius Perdana\Desktop\Get-LastBootTime.ps1'
+
+CSName          Last Booted
+------          -----------
+DESKTOP-DF14PID 02/02/2021 22.48.59
+
+
+PS C:\Users\Hilarius Perdana>
+
+CSName          FreeVirtualMemory
+------          -----------------
+DESKTOP-DF14PID           2866460
