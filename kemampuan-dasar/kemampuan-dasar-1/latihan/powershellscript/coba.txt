@@ -1,0 +1,2 @@
+PS C:\Users\Hilarius Perdana> & "C:\Users\Hilarius Perdana\Desktop\coba"
+cobacobayuk

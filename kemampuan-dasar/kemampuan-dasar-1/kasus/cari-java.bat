@@ -1,0 +1,18 @@
+echo Off
+title Cari Java
+:awal
+cls
+echo adakah file java
+echo.---------------------------------------------------
+echo dimana kamu pengen cari
+set/p input=Masukan direktori:
+echo ---------------------------------------------------
+echo.
+echo Direktori yang dipanggil %input%
+echo.
+echo ---------------------------------------------------
+%input%:
+echo ada file java di
+dir *.java /s /b
+pause
+goto awal

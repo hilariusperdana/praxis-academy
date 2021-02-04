@@ -1,0 +1,5 @@
+PS C:\Users\Hilarius Perdana>
+
+CSName          FreeVirtualMemory
+------          -----------------
+DESKTOP-DF14PID           2866460

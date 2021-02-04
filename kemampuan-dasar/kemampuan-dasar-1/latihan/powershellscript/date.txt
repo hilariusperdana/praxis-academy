@@ -1,0 +1,8 @@
+PS C:\Users\Hilarius Perdana> Get-WmiObject -Class Win32_OperatingSystem –ComputerName localhost |
+Select-Object -Property CSName,@{n=”Last Booted”;
+
+e={[Management.ManagementDateTimeConverter]::ToDateTime($_.LastBootUpTime)}}
+
+CSName          Last Booted        
+------          -----------        
+DESKTOP-DF14PID 02/02/2021 22.48.59

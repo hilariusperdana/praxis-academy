@@ -1,0 +1,21 @@
+cd\Users\Hilarius Perdana\Desktop
+print /d:COM1 ukuran.txt
+arp /s 192.168.1.12 00-AA-00-4F-2A-9C
+assoc .txt
+attrib +r ukuran.txt
+chkdsk d: /r
+chkntfs /d
+clip < ukuran.txt
+cls
+cmdkey /list
+color 03
+compact ukuran casing.txt /c
+copy ukuran.txt g:\
+defrag g:
+del ukuran.txt /p
+diskpart
+find "cm" ukuran.txt
+ipconfig
+move ukuran.txt g:\
+rename ukuran.txt dimensi.txt
+exit

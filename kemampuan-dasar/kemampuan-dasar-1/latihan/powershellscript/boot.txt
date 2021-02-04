@@ -1,0 +1,5 @@
+PS C:\Users\Hilarius Perdana> & 'C:\Users\Hilarius Perdana\Desktop\Get-LastBootTime.ps1'
+
+CSName          Last Booted
+------          -----------
+DESKTOP-DF14PID 02/02/2021 22.48.59
