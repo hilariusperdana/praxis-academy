@@ -14,6 +14,6 @@ def partition(A,mulai,akhir):
     A[pindex],A[akhir] = A[akhir],A[pindex]
     return pindex
 
-A = [54,26,93,17,77,31,44,55,20]
+A = [34,21,45,32,12,31,19,23,54,31,25,27]
 QuickSort(A,0,len(A)-1)
-print(A)
+print("hasil",A)
