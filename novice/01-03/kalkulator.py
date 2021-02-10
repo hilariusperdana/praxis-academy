@@ -1,3 +1,9 @@
+print('1. tambah')
+print('2. kurang')
+print('3. kali')
+print('4. bagi')
+print('5. pangkat')
+
 pilihan = input("silahkan pilih(1/2/3/4/5): ")
 x = int(input("masukkan angka pertama: "))
 y = int(input("masukkan angka kedua: "))
