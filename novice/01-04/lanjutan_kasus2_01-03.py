@@ -38,11 +38,12 @@ print('2.luas persegi')
 print('3.luas persegi panjang')
 print('4.luas segitiga')
 print('5.luas jajar genjang')
+print('6.exit')
 
 #pilih menu operasi
 while True:
     
-    pilih=input('silahkan pilih(1/2/3/4/5)')
+    pilih=input('silahkan pilih(1/2/3/4/5/6)')
 
     if pilih=='1':
         r=int(input('masukkan jari jari: '))
@@ -62,6 +63,8 @@ while True:
         a=int(input('masukkan alas: '))
         t=int(input('masukkan tinggi: '))
         print('hasil',ljajargenjang(a,t))
+    elif pilih=='6':
+        break
     else:
         print('pilihan tidak ada')
 
