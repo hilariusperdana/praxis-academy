@@ -1,3 +1,4 @@
+#latihan 1
 #comparison data string
 
 kondisi=input('masukkan kondisi anda saat ini')
@@ -38,11 +39,12 @@ kondisi=input('masukkan kondisi anda saat ini')
 umur=input('masukkan umur anda')
 if (kondisi == 'sehat') and (umur>='17'):
     print('silahkan masuk')
-elif ((kondisi != 'sehat') and (umur<'17'))
+elif (kondisi != 'sehat') and (umur<'17'):
     print('tidak boleh masuk')
 else:
     print('input salah')
 
+#or
 print('[1] smartphone')
 print('[2] Hp jadul')
 jenis_hp=input('masukkan jenis handphone anda: ')
