@@ -1,11 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from .models import Registrasi
 
 def home_screen(req):
     register = Registrasi.objects.all()
-    return render(req, 'list_pengunjung/index.html')
+    return render(req, 'list_pengunjung/index.html', {
+        'data': register,
+    })
+
+def tambah(req):
+    if req.POST:
+        Registrasi.objects.create(
+            no_urut = req.POST['no_urut'],
+            nama = req.POST['nama'],
+            alamat = req.POST['alamat'],
+            no_tlp = req.POST['no_tlp'],
+        )
+        return redirect('/list_pengunjung')
+    return render(req, 'list_pengunjung/tambah.html')
 
 def profil_s(req):
     return render(req, 'list_pengunjung/profil.html')
