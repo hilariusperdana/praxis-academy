@@ -20,5 +20,14 @@ def tambah(req):
         return redirect('/list_pengunjung')
     return render(req, 'list_pengunjung/tambah.html')
 
+
+
+
+def hapus(req, id):
+    dt = Registrasi.objects.get(id=id)
+    dt.delete()
+    return redirect('/list_pengunjung/')
+
+
 def profil_s(req):
     return render(req, 'list_pengunjung/profil.html')
