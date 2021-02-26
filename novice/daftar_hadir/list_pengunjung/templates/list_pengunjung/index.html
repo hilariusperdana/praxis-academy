@@ -3,6 +3,7 @@
 
 <h1>Isikan Data Anda</h1> 
 
+	
 <a href="/">
     <button type="button" class="btn btn-primary">Kembali</button>
 </a>
@@ -23,18 +24,44 @@
     <tbody>
         {%  for d in data %}
         <tr>
-            <th scope="row">{{d.id}}</th>
+            <th scope="row">{{forloop.counter}}</th>
             <td>{{d.nama}}</td>
             <td>{{d.alamat}}</td>
             <td>{{d.no_tlp}}</td>
             <td>
-                <a href="hapus/{{ d.id }}">
-                    <i class="bi bi-trash"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <!-- Tombol untuk menampilkan modal-->
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal{{d.id}}"><i class="bi bi-trash"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                         <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                      </svg></i>
+                      </svg></i></button>
+                
+                    <!-- Modal -->
+                    <div id="myModal{{d.id}}" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- konten modal-->
+                            <div class="modal-content">
+                                <!-- heading modal -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">keyakinan</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- body modal -->
+                                <div class="modal-body">
+                                    <p>Anda yakin ingin menghapus?</p>
+                                </div>
+                                <!-- footer modal -->
+                                <div class="modal-footer">
+                                    <a href="hapus/{{ d.id }}">
+                                        <button type="button" class="btn btn-default">yaaaaa</button>
+                                    </a>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">tidaaaakk</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </a>
-                <a href="{{ d.id }}">
+                <a href="list_pengunjung/edit/{{ d.id }}">
                     <i class="bi bi-pencil-square"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>

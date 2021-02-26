@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Silakan ubah data disini</h1>
+
+<form action="" method="post">
+    {% csrf_token %}    
+    <input type="text" name="nama" value="{{ data.nama }}">
+    <input type="text" name="alamat" value="{{ data.alamat }}">
+    <input type="number" name="no_tlp" value="{{ data.no_tlp }}">
+    <br><br>
+    <button type="submit" class="btn btn-success btn-sm">selesai</button>
+</form>
+{% endblock %}

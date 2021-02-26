@@ -7,5 +7,5 @@ urlpatterns = [
     path('tambah',views.tambah),
     path('profil',views.profil_s),
     path('hapus/<int:id>',views.hapus),
-
+    path('edit/<int:id>',views.edit),
 ]
