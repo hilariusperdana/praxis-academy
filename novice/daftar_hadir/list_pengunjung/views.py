@@ -21,8 +21,6 @@ def tambah(req):
     return render(req, 'list_pengunjung/tambah.html')
 
 
-
-
 def hapus(req, id):
     dt = Registrasi.objects.get(id=id)
     dt.delete()
