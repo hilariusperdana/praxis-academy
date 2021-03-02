@@ -3,8 +3,6 @@ from django.forms import ModelForm
 from .models import Registrasi
 from django.shortcuts import render, redirect
 
-# untuk form Barang
-
 class FormRegistrasi(forms.ModelForm):
     class Meta:
         exclude = [ ]
@@ -21,3 +19,13 @@ class FormRegistrasi(forms.ModelForm):
         return render(self, 'list_pengunjung/saveform.html',{
             'form' : form,
         } )
+    
+    def edit(self,id):
+        data = Registrasi.objects.filter(id=id).first()
+        form=FormRegistrasi(instance=data)
+        if self.POST:
+            form=FormRegistrasi(self.POST, instance=data)
+            if form.is_valid():
+                form.save()
+            return redirect('/list_pengunjung')
+        return render(self,'list_pengunjung/saveform.html', {'form':form})
