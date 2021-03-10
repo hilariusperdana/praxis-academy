@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'market',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'cobasik.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'daftarhadir',
+        'NAME': 'barangdagangan',
         'USER': 'hilarius',
         'PASSWORD': '121996',
         'HOST': 'localhost',

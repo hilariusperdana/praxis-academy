@@ -12,16 +12,16 @@ def home_screen(req):
         'data': register,
     })
 
-def tambah(req):
-    if req.POST:
-        Registrasi.objects.create(
-            no_urut = req.POST['no_urut'],
-            nama = req.POST['nama'],
-            alamat = req.POST['alamat'],
-            no_tlp = req.POST['no_tlp'],
-        )
-        return redirect('/market')
-    return render(req, 'market/tambah.html')
+# def tambah(req):
+#     if req.POST:
+#         Registrasi.objects.create(
+#             no_urut = req.POST['no_urut'],
+#             nama = req.POST['nama'],
+#             alamat = req.POST['alamat'],
+#             no_tlp = req.POST['no_tlp'],
+#         )
+#         return redirect('/market')
+#     return render(req, 'market/tambah.html')
 
 
 def hapus(req, id):
@@ -29,16 +29,16 @@ def hapus(req, id):
     dt.delete()
     return redirect('/market/')
 
-def edit(req, id):
-    data = Registrasi.objects.get(id=id)
-    if req.POST:
-        Registrasi.objects.filter(pk=id).update(
-            nama = req.POST['nama'],
-            alamat = req.POST['alamat'],
-            no_tlp = req.POST['no_tlp'],
-        )
-        return redirect('/market')
-    return render(req,'market/edit.html', {'data':data})
+# def edit(req, id):
+#     data = Registrasi.objects.get(id=id)
+#     if req.POST:
+#         Registrasi.objects.filter(pk=id).update(
+#             nama = req.POST['nama'],
+#             alamat = req.POST['alamat'],
+#             no_tlp = req.POST['no_tlp'],
+#         )
+#         return redirect('/market')
+#     return render(req,'market/edit.html', {'data':data})
 
-def profil_s(req):
-    return render(req, 'market/profil.html')
+# def profil_s(req):
+#     return render(req, 'market/profil.html')
