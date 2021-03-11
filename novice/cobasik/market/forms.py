@@ -32,13 +32,13 @@ class FormRegistrasi(forms.ModelForm):
             return redirect('/market')
         return render(self,'market/saveform.html', {'form':form})
     
-    def upload_file(self):
-        if self.method == 'POST':
-            form = ModelForm(self.POST, self.FILES)
-            if form.is_valid():
-                # file is saved
-                form.save()
-                return HttpResponseRedirect('/success/url/')
-        else:
-            form = ModelForm()
-        return render(self, 'upload.html', {'form': form})
+    # def upload_file(self):
+    #     if self.method == 'POST':
+    #         form = ModelForm(self.POST, self.FILES)
+    #         if form.is_valid():
+    #             # file is saved
+    #             form.save()
+    #             return HttpResponseRedirect('/success/url/')
+    #     else:
+    #         form = ModelForm()
+    #     return render(self, 'upload.html', {'form': form})

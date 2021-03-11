@@ -13,7 +13,7 @@ urlpatterns = [
     path('hapus/<int:id>',views.hapus),
     path('editform/<int:id>',forms.FormRegistrasi.edit),
     path('Form', forms.FormRegistrasi.simpandata),
-    path('Upload', forms.FormRegistrasi.upload_file),
+    # path('Upload', forms.FormRegistrasi.upload_file),
     
 ] 
 
