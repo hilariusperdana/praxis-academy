@@ -42,3 +42,9 @@ def hapus(req, id):
 
 # def profil_s(req):
 #     return render(req, 'market/profil.html')
+
+def cardproduk(req):
+    register = Registrasi.objects.all()
+    return render(req, 'market/card.html', {
+        'data': register,
+    })

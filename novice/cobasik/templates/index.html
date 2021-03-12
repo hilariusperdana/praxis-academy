@@ -4,4 +4,35 @@
     
     <br/>
     Halaman Depan
+
+
+{% comment %} <div class="card" style="width: 18rem;">
+  <img src="{{d.foto.url}}" class="card-img-top" alt="...">
+  <div class="card-body">  
+    {%  for d in data %}
+    <h5 class="card-title">{{d.nama}}</h5>
+    <p class="card-text">{{d.deskripsi}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+    {% endfor %}
+  </div>
+</div> {% endcomment %}
+
+<div class="card" style="width: 18rem;">
+    {% for d in data %}
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{{ d.foto.url }}" alt="">
+        <div class="box-element product">
+            <h6><b>{{ d.name }}</b></h6>
+            <hr>
+
+            <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+            <a href="javasscript:void(0)" class="btn btn-outline-success">View</a>
+            <h4 style="display: inline-block; float: right"><strong>{{ d.harga }}</strong></h4>
+        </div>
+    </div>
+
+    {% endfor %}
+</div> 
+
 {% endblock %}
+
