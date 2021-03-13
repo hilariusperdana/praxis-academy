@@ -11,7 +11,10 @@ class Registrasi(models.Model):
     no_tlp = models.CharField(max_length = 15)
     tanggal = models.DateTimeField(auto_now_add=True, null=True)
     foto = models.ImageField(upload_to='produk/', blank=True)
-    
 
+    def delete(self, *args, **kwargs):
+        self.foto.delete()
+        super().delete(*args, **kwargs)
+    
     def __str__(self):
         return self.nama

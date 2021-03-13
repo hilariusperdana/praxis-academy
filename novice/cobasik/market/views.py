@@ -29,6 +29,8 @@ def hapus(req, id):
     dt.delete()
     return redirect('/produk')
 
+
+
 # def edit(req, id):
 #     data = Registrasi.objects.get(id=id)
 #     if req.POST:
