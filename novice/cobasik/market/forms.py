@@ -16,7 +16,7 @@ class FormRegistrasi(forms.ModelForm):
             form = FormRegistrasi(self.POST, self.FILES)
             if form.is_valid():
                 form.save()
-                return redirect('/market')
+                return redirect('/produk')
             #(form.errors)
         return render(self, 'market/saveform.html',{
             'form' : form,
@@ -29,7 +29,7 @@ class FormRegistrasi(forms.ModelForm):
             form=FormRegistrasi(self.POST, self.FILES, instance=data)
             if form.is_valid():
                 form.save()
-            return redirect('/market')
+            return redirect('/produk')
         return render(self,'market/saveform.html', {'form':form})
     
     # def upload_file(self):

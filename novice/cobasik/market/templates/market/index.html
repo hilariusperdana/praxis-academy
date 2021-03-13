@@ -1,4 +1,4 @@
-{% extends 'layoutmarket.html' %}
+{% extends 'market/layoutmarket.html' %}
 {% block content %}
 
 <h1>Isikan Data Barang Anda</h1> 
@@ -7,12 +7,12 @@
 <a href="/">
     <button type="button" class="btn btn-primary">Kembali</button>
 </a>
-<a href="/market/Form">
+<a href="/Form">
     <button type="button" class="btn btn-success">Tambah</button>
 </a>
-<a href="/market/card">
+{% comment %} <a href="/card">
     <button type="button" class="btn btn-success">card</button>
-</a>
+</a> {% endcomment %}
 
 <table class="table">
     <thead>

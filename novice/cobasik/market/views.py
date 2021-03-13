@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from .models import Registrasi
 
-def home_screen(req):
+def listproduk(req):
     register = Registrasi.objects.all()
     return render(req, 'market/index.html', {
         'data': register,
@@ -27,7 +27,7 @@ def home_screen(req):
 def hapus(req, id):
     dt = Registrasi.objects.get(id=id)
     dt.delete()
-    return redirect('/market/')
+    return redirect('/produk')
 
 # def edit(req, id):
 #     data = Registrasi.objects.get(id=id)
