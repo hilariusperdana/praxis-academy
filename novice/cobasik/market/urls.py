@@ -11,11 +11,12 @@ urlpatterns = [
     # path('tambah',views.tambah),
     # path('profil',views.profil_s),
     path('hapus/<int:id>',views.hapus),
+    path('hapuspnj/<int:id>',views.hapuspnj),
     path('editform/<int:id>',forms.FormRegistrasi.edit),
     path('Form', forms.FormRegistrasi.simpandata),
     # path('Upload', forms.FormRegistrasi.upload_file),
     path('',views.cardproduk),
-    
+    path('penjual', forms.FormPenjual.simpandata),
 ] 
 
 if settings.DEBUG:

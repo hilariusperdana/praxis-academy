@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from .models import Registrasi
+from .models import daftarpenjual
 
 def listproduk(req):
     register = Registrasi.objects.all()
@@ -12,6 +13,11 @@ def listproduk(req):
         'data': register,
     })
 
+def listpenjual(req):
+    pnj = daftarpenjual.objects.all()
+    return render(req, 'market/card.html', {
+        'data1': pnj,
+    })
 # def tambah(req):
 #     if req.POST:
 #         Registrasi.objects.create(
@@ -28,6 +34,11 @@ def hapus(req, id):
     dt = Registrasi.objects.get(id=id)
     dt.delete()
     return redirect('/produk')
+
+def hapuspnj(req, id):
+    dt1 = daftarpenjual.objects.get(id=id)
+    dt1.delete()
+    return redirect('/')
 
 
 
@@ -47,6 +58,9 @@ def hapus(req, id):
 
 def cardproduk(req):
     register = Registrasi.objects.all()
+    pnj = daftarpenjual.objects.all()
     return render(req, 'market/card.html', {
         'data': register,
+        'data1': pnj,
     })
+

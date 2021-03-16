@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from .models import Registrasi
+from .models import daftarpenjual
 from django.shortcuts import render, redirect
 
 from django.http import HttpResponseRedirect
@@ -42,3 +43,31 @@ class FormRegistrasi(forms.ModelForm):
     #     else:
     #         form = ModelForm()
     #     return render(self, 'upload.html', {'form': form})
+
+
+class FormPenjual(forms.ModelForm):
+    class Meta:
+        exclude = [ ]
+        model = daftarpenjual
+    
+    def simpandata(self):
+        form = FormPenjual( )
+        if self.POST:
+            form = FormPenjual(self.POST, self.FILES)
+            if form.is_valid():
+                form.save()
+                return redirect('/')
+            #(form.errors)
+        return render(self, 'market/formpenjual.html',{
+            'form' : form,
+        } )
+    
+    def edit(self,id):
+        data = daftarpenjual.objects.filter(id=id).first()
+        form=FormPenjual(instance=data)
+        if self.POST:
+            form=FormPenjual(self.POST, self.FILES, instance=data)
+            if form.is_valid():
+                form.save()
+            return redirect('/')
+        return render(self,'market/formpenjual.html', {'form':form})
