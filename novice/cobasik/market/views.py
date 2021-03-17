@@ -18,6 +18,12 @@ def listpenjual(req):
     return render(req, 'market/card.html', {
         'data1': pnj,
     })
+
+def listprodukpnj(req, penjual):
+    register = Registrasi.objects.filter(penjual=penjual)
+    return render(req, 'market/index.html', {
+        'data': register,
+    })
 # def tambah(req):
 #     if req.POST:
 #         Registrasi.objects.create(

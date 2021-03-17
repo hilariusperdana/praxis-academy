@@ -8,22 +8,28 @@
     <button type="button" class="btn btn-success">tambah penjual</button>
 </a> 
 
+<br></br>
 
-<tbody>
 
     <div class="row">{{forloop.counter}}
     {% for d1 in data1 %}
-    <div class="col-lg-4">
-    <div class="card mb-4" style="width: 12rem;" >
+    <div class="col-lg-3">
+    <div class="card mx-0 px-1"   >
         {% if d1.foto_toko %}
             <center><img class="thumbnail" src="{{ d1.foto_toko.url }}" width="100px"></center>
         {% endif %}
         <div class="box-element product">
-            <h6><b width="40px">{{ d1.nama_toko }}</b></h6>
+            <h6>
+            {% comment %} {% for d in data %} {% endcomment %}
+                <a href="/produk/{{ d1.nama_toko }}">
+                    <b width="40px">{{ d1.nama_toko }}</b>
+                </a>
+            {% comment %} {% endfor %} {% endcomment %}
+            </h6>
             <h6><b width="40px">{{ d1.keterangan }}</b></h6>
             <button class="btn btn-outline-secondary add-btn">kontak penjual</button>
-            {% comment %} <a href="javasscript:void(0)" class="btn btn-outline-success">View</a> {% endcomment %}
-            {% comment %} <h4 style="display: inline-block; float: right" width="40px">{{ d.harga }}</h4> {% endcomment %}
+            <!-- <a href="javasscript:void(0)" class="btn btn-outline-success">View</a> -->
+            <!-- <h4 style="display: inline-block; float: right" width="40px">{{ d.harga }}</h4> -->
         </div>
         <td>
                     <!-- Tombol untuk menampilkan modal-->
@@ -71,13 +77,13 @@
     {% endfor %}
     </div>
 
-</tbody>
 
-<tbody>
+
+{% comment %} <tbody>
 
     <div class="row">{{forloop.counter}}
     {% for d in data %}
-    <div class="col-lg-4">
+    <div class="col-lg-">
     <div class="card mb-4" style="width: 12rem;" >
         {% if d.foto %}
             <center><img class="thumbnail" src="{{ d.foto.url }}" width="100px"></center>
@@ -87,7 +93,7 @@
             <h6><b width="40px">{{ d.deskripsi }}</b></h6>
             <button class="btn btn-outline-secondary add-btn">kontak penjual</button>
             {% comment %} <a href="javasscript:void(0)" class="btn btn-outline-success">View</a> {% endcomment %}
-            <h4 style="display: inline-block; float: right" width="40px">{{ d.harga }}</h4>
+            {% comment %} <h4 style="display: inline-block; float: right" width="40px">{{ d.harga }}</h4>
         </div>
     </div>
     </div> 
@@ -95,6 +101,6 @@
     {% endfor %}
     </div>
 
-</tbody>
+</tbody> {% endcomment %}
 
-{% endblock %}
+{% endblock %} 

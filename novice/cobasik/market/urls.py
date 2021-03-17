@@ -17,6 +17,7 @@ urlpatterns = [
     # path('Upload', forms.FormRegistrasi.upload_file),
     path('',views.cardproduk),
     path('penjual', forms.FormPenjual.simpandata),
+    path('produk/<penjual>',views.listprodukpnj),
 ] 
 
 if settings.DEBUG:
