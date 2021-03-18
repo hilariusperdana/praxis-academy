@@ -26,7 +26,7 @@ class Registrasi(models.Model):
     ], default='')
     deskripsi = models.CharField(max_length = 255)
     harga = models.CharField(max_length = 15)
-    no_tlp = models.CharField(max_length = 15)
+    # no_tlp = models.CharField(max_length = 15)
     tanggal = models.DateField(auto_now_add=True, null=True)
     foto = models.ImageField(upload_to='produk/', blank=True)
     penjual = models.ForeignKey(Daftarpenjual, on_delete=models.DO_NOTHING, related_name='info', default='')
