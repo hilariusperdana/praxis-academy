@@ -1,5 +1,6 @@
 from django.db import models
 
+# Create your models here.
 class Daftarpenjual(models.Model):
     nama_toko = models.CharField(max_length = 255)
     keterangan = models.CharField(max_length = 255)
@@ -7,23 +8,22 @@ class Daftarpenjual(models.Model):
     foto_toko = models.ImageField(upload_to='toko/', blank=True)
 
     def delete(self, *args, **kwargs):
-        self.foto.delete()
+        self.foto_toko.delete()
         super().delete(*args, **kwargs)
 
     def __str__(self):
         return self.nama_toko
-# Create your models here.
+
+class Category(models.Model):
+    nama_Kategori = models.CharField(max_length = 255)
+
+    def __str__(self):
+        return self.nama_Kategori
+
 
 class Registrasi(models.Model):
     nama = models.CharField(max_length = 255)
-    kategori = models.CharField(
-        max_length=40, choices=[
-        (None, "kategori produk"),    
-        ('bahan', "bahan baku"),
-        ('kerajinan', "kerajinan"),
-        ('jasa', "jasa"),
-        ('kuliner', "kuliner siap saji"),
-    ], default='')
+    kategori = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name='cats', default='')
     deskripsi = models.CharField(max_length = 255)
     harga = models.CharField(max_length = 15)
     # no_tlp = models.CharField(max_length = 15)

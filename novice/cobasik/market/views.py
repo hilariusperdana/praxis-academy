@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from .models import Registrasi
 from .models import Daftarpenjual
+from .models import Category
 
 def listproduk(req):
     register = Registrasi.objects.all()
@@ -13,14 +14,20 @@ def listproduk(req):
         'data': register,
     })
 
-def listpenjual(req):
-    pnj = Daftarpenjual.objects.all()
-    return render(req, 'market/card.html', {
-        'data1': pnj,
-    })
+# def listpenjual(req):
+#     pnj = Daftarpenjual.objects.all()
+#     return render(req, 'market/card.html', {
+#         'data1': pnj,
+#     })
 
 def listprodukpnj(req, penjual):
     register = Registrasi.objects.filter(penjual__nama_toko=penjual)
+    return render(req, 'market/index.html', {
+        'data': register,
+    })
+
+def listprodukcat(req, kategori):
+    register = Registrasi.objects.filter(kategori__nama_Kategori=kategori)
     return render(req, 'market/index.html', {
         'data': register,
     })
@@ -46,6 +53,11 @@ def hapuspnj(req, id):
     dt1.delete()
     return redirect('/')
 
+def hapuskat(req, id):
+    dt2 = Category.objects.get(id=id)
+    dt2.delete()
+    return redirect('/')
+
 
 
 # def edit(req, id):
@@ -65,8 +77,10 @@ def hapuspnj(req, id):
 def cardproduk(req):
     register = Registrasi.objects.all()
     pnj = Daftarpenjual.objects.all()
+    Cat = Category.objects.all()
     return render(req, 'market/card.html', {
         'data': register,
         'data1': pnj,
+        'data2': Cat
     })
 
