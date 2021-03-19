@@ -20,7 +20,8 @@ urlpatterns = [
     path('penjual', forms.FormPenjual.simpandata),
     path('produk/<penjual>',views.listprodukpnj),
     path('kategori', forms.FormCategory.simpandata),
-    path('produk/<kategori>',views.listprodukcat),
+    path('produk/ctr/<kategori>',views.listprodukcat),
+    # path('produk/ctr/Jasa',viewsCategory.listCategory),
 ] 
 
 if settings.DEBUG:

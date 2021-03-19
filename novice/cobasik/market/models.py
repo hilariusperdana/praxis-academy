@@ -24,6 +24,14 @@ class Category(models.Model):
 class Registrasi(models.Model):
     nama = models.CharField(max_length = 255)
     kategori = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name='cats', default='')
+    # kategori = models.CharField(
+    #     max_length=40, choices=[
+    #     (None, "Pilih Kategori"),    
+    #     ('Bahan Baku', "Bahan Baku"),
+    #     ('Jasa', "Jasa"),
+    #     ('Kuliner', "Kuliner"),
+    #     ('Kerajinan', "Kerajinan"),
+    # ], default='')
     deskripsi = models.CharField(max_length = 255)
     harga = models.CharField(max_length = 15)
     # no_tlp = models.CharField(max_length = 15)

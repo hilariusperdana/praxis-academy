@@ -28,6 +28,7 @@ def listprodukpnj(req, penjual):
 
 def listprodukcat(req, kategori):
     register = Registrasi.objects.filter(kategori__nama_Kategori=kategori)
+    
     return render(req, 'market/index.html', {
         'data': register,
     })
