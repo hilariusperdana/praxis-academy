@@ -37,7 +37,7 @@ class Registrasi(models.Model):
     # no_tlp = models.CharField(max_length = 15)
     tanggal = models.DateField(auto_now_add=True, null=True)
     foto = models.ImageField(upload_to='produk/', blank=True)
-    penjual = models.ForeignKey(Daftarpenjual, on_delete=models.DO_NOTHING, related_name='info', default='')
+    penjual = models.ForeignKey(Daftarpenjual, on_delete=models.CASCADE, related_name='info', default='')
     # penjual = models.CharField(
     #     max_length=40, choices=[
     #     (None, "nama penjual"),    
