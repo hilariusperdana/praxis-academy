@@ -742,7 +742,7 @@ th {
   z-index: 9; }
 
 .navbar {
-  padding: 25px 15px; }
+  padding: 10px 15px; }
   @media (max-width: 992px) {
     .navbar .navbar-collapse {
       background: #222222;
@@ -817,7 +817,7 @@ th {
   position: fixed;
   left: 0;
   width: 100%;
-  background: #222222; }
+  background:#007bff46; }
 
 #search-input-box {
   position: fixed;
