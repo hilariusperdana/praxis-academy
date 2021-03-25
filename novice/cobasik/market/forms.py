@@ -57,7 +57,7 @@ class FormPenjual(forms.ModelForm):
             form = FormPenjual(self.POST, self.FILES)
             if form.is_valid():
                 form.save()
-                return redirect('/')
+                return redirect('/Form')
             #(form.errors)
         return render(self, 'market/formpenjual.html',{
             'form' : form,
