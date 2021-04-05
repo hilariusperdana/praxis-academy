@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 
 class FormRegistrasi(forms.ModelForm):
     class Meta:
-        exclude = [ 'penjual' ]
+        exclude = []
         model = Registrasi
     
     def simpandata(self):
