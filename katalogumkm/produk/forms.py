@@ -20,7 +20,7 @@ class FormTambahproduk(forms.ModelForm):
                 form.save()
                 return redirect('/produk')
             #(form.errors)
-        return render(self, 'market/saveform.html',{
+        return render(self, 'produk/form.html',{
             'form' : form,
         } )
     
@@ -32,7 +32,7 @@ class FormTambahproduk(forms.ModelForm):
             if form.is_valid():
                 form.save()
             return redirect('/produk')
-        return render(self,'market/saveform.html', {'form':form})
+        return render(self,'produk/form.html', {'form':form})
 
 class FormPenjual(forms.ModelForm):
     class Meta:
@@ -47,7 +47,7 @@ class FormPenjual(forms.ModelForm):
                 form.save()
                 return redirect('/Form')
             #(form.errors)
-        return render(self, 'market/formpenjual.html',{
+        return render(self, 'produk/form.html',{
             'form' : form,
         } )
     
@@ -59,7 +59,7 @@ class FormPenjual(forms.ModelForm):
             if form.is_valid():
                 form.save()
             return redirect('/')
-        return render(self,'market/formpenjual.html', {'form':form})
+        return render(self,'produk/form.html', {'form':form})
 
 class FormCategory(forms.ModelForm):
     class Meta:
@@ -74,6 +74,6 @@ class FormCategory(forms.ModelForm):
                 form.save()
                 return redirect('/')
             #(form.errors)
-        return render(self, 'market/formkategori.html',{
+        return render(self, 'produk/form.html',{
             'form' : form,
         } )

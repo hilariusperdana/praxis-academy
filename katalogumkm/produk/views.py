@@ -8,19 +8,19 @@ from .models import Category
 
 def listproduk(req):
     register = Tambahproduk.objects.all()
-    return render(req, 'produk/index.html', {
+    return render(req, 'produk/listproduk.html', {
         'data': register,
     })
 
 def listprodukpnj(req, penjual):
     register = Tambahproduk.objects.filter(penjual__nama_toko=penjual)
-    return render(req, 'produk/index.html', {
+    return render(req, 'produk/listproduk.html', {
         'data': register,
     })
 
 def listprodukcat(req, kategori):
     register = Tambahproduk.objects.filter(kategori__nama_Kategori=kategori)
-    return render(req, 'produk/index.html', {
+    return render(req, 'produk/listproduk.html', {
         'data': register,
     })
 
@@ -46,6 +46,6 @@ def cardproduk(req):
     return render(req, 'produk/index.html', {
         'data': register,
         'data1': pnj,
-        'data2': Cat
+        'data2': Cat,
     })
 

@@ -14,7 +14,7 @@ urlpatterns = [
     path('hapuspnj/<int:id>',views.hapuspnj),
     path('hapuskat/<int:id>',views.hapuskat),
     path('editform/<int:id>',forms.FormTambahproduk.edit),
-    path('Form', forms.FormTambahproduk.simpandata),
+    path('form', forms.FormTambahproduk.simpandata),
     # path('Upload', forms.FormRegistrasi.upload_file),
     path('',views.cardproduk),
     path('penjual', forms.FormPenjual.simpandata),
