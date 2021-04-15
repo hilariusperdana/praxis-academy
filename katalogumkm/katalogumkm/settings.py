@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'produk',
     'crispy_forms',
+
+    
 ]
 
 MIDDLEWARE = [
