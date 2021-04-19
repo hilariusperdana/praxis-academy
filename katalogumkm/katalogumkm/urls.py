@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from akun import views
 
 from django.shortcuts import render
 from django.conf.urls.static import static
@@ -12,4 +13,5 @@ urlpatterns = [
     # path('market/', include('market.urls')),
     path('', include('produk.urls')),
     path('admin/', admin.site.urls),
+    path('', include('akun.urls'))
 ]

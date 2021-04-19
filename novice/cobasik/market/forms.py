@@ -12,7 +12,7 @@ class FormRegistrasi(forms.ModelForm):
         exclude = []
         model = Registrasi
     
-    def simpandata(self):
+    def simpandata(self):   
         form = FormRegistrasi( )
         if self.POST:
             form = FormRegistrasi(self.POST, self.FILES)

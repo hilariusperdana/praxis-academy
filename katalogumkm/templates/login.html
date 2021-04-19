@@ -1,0 +1,11 @@
+<div>
+    <ul>
+        <li><a href="home.html">home</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">logout</a></li>
+        {% else %}
+            <li><a href="akun/register.html">register</a></li>
+            <li><a href="{% url 'login' %}">login</a></li>
+        {% endif %}
+    </ul>
+</div>
