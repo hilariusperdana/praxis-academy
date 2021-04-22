@@ -14,7 +14,9 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
+STATIC_DIR = os.path.join(BASE_DIR,'static')
+MEDIA_DIR = os.path.join(BASE_DIR,'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -61,7 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR + '/templates'
+            TEMPLATE_DIR
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -141,9 +143,5 @@ MEDIA_URL = '/market/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'market')
 
 # update auth pada setting
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = 'login'
-LOGIN_URL = 'login'
-ACCOUNT_SIGNUP_FORM_CLASS = 'akun.forms.SignUpForm'
-WSGI_APPLICATION = 'katalogumkm.wsgi.application'
+LOGIN_URL = '/akun/user_login/'
 # end

@@ -1,10 +1,9 @@
+from django.conf.urls import url
 from django.urls import path
-from akun import views as account_views
-from django.contrib.auth import views as auth_views
+from akun import views# SET THE NAMESPACE!
+app_name = 'akun' # jangan lupa edit bagian ini, esuaikan app yang dibuat
 
-
-urlpatterns = [
-    path('register/', account_views.Register, name='register'),
-    path('login/', auth_views.LoginView.as_view(template_name='akun/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='akun/logout.html'), name='logout'),
+urlpatterns=[
+    path('register/',views.register,name='register'),
+    path('user_login/',views.user_login,name='user_login'),
 ]
