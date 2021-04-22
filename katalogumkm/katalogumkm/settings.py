@@ -138,9 +138,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-MEDIA_URL = '/market/'
+MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'market')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # update auth pada setting
 LOGIN_URL = '/akun/user_login/'

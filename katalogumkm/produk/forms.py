@@ -18,9 +18,9 @@ class FormTambahproduk(forms.ModelForm):
             form = FormTambahproduk(self.POST, self.FILES)
             if form.is_valid():
                 form.save()
-                return redirect('/produk')
+                return redirect('/katalog')
             #(form.errors)
-        return render(self, 'produk/form.html',{
+        return render(self, 'katalog/form.html',{
             'form' : form,
         } )
     
@@ -31,8 +31,8 @@ class FormTambahproduk(forms.ModelForm):
             form=FormTambahproduk(self.POST, self.FILES, instance=data)
             if form.is_valid():
                 form.save()
-            return redirect('/produk')
-        return render(self,'produk/form.html', {'form':form})
+            return redirect('/katalog')
+        return render(self,'katalog/form.html', {'form':form})
 
 class FormPenjual(forms.ModelForm):
     class Meta:
@@ -47,7 +47,7 @@ class FormPenjual(forms.ModelForm):
                 form.save()
                 return redirect('/Form')
             #(form.errors)
-        return render(self, 'produk/form.html',{
+        return render(self, 'katalog/form.html',{
             'form' : form,
         } )
     
@@ -59,7 +59,7 @@ class FormPenjual(forms.ModelForm):
             if form.is_valid():
                 form.save()
             return redirect('/')
-        return render(self,'produk/form.html', {'form':form})
+        return render(self,'katalog/form.html', {'form':form})
 
 class FormCategory(forms.ModelForm):
     class Meta:
@@ -74,6 +74,6 @@ class FormCategory(forms.ModelForm):
                 form.save()
                 return redirect('/')
             #(form.errors)
-        return render(self, 'produk/form.html',{
+        return render(self, 'katalog/form.html',{
             'form' : form,
         } )

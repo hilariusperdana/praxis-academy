@@ -8,26 +8,26 @@ from .models import Category
 
 def listproduk(req):
     register = Tambahproduk.objects.all()
-    return render(req, 'produk/listproduk.html', {
+    return render(req, 'katalog/listproduk.html', {
         'data': register,
     })
 
 def listprodukpnj(req, penjual):
     register = Tambahproduk.objects.filter(penjual__nama_toko=penjual)
-    return render(req, 'produk/listproduk.html', {
+    return render(req, 'katalog/listproduk.html', {
         'data': register,
     })
 
 def listprodukcat(req, kategori):
     register = Tambahproduk.objects.filter(kategori__nama_Kategori=kategori)
-    return render(req, 'produk/listproduk.html', {
+    return render(req, 'katalog/listproduk.html', {
         'data': register,
     })
 
 def hapus(req, id):
     dt = Tambahproduk.objects.get(id=id)
     dt.delete()
-    return redirect('/produk')
+    return redirect('/katalog')
 
 def hapuspnj(req, id):
     dt1 = Tambahpenjual.objects.get(id=id)
@@ -43,7 +43,7 @@ def cardproduk(req):
     register = Tambahproduk.objects.all()
     pnj = Tambahpenjual.objects.all()
     Cat = Category.objects.all()
-    return render(req, 'produk/index.html', {
+    return render(req, 'katalog/index.html', {
         'data': register,
         'data1': pnj,
         'data2': Cat,
