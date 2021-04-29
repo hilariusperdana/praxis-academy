@@ -58,3 +58,15 @@ def listpenjual(req):
 def about(req):
     return render(req, 'katalog/about.html', { 
     })
+
+def search(req):
+    if req.method == "POST":
+        searched = req.POST['searched']
+        tambahproduks = Tambahproduk.objects.filter(nama__contains=searched)
+        return render(req, 'search.html', {
+        'tambahproduks':tambahproduks ,   
+        'searched':searched })
+    else:
+        return render(req, 'search.html', {
+          
+    })

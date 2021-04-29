@@ -22,6 +22,7 @@ urlpatterns = [
     path('kategori', forms.FormCategory.simpandata),
     path('produk/ctr/<kategori>',views.listprodukcat),
     # path('produk/ctr/Jasa',viewsCategory.listCategory),
+    path('search',views.search, name='search'),
 ] 
 
 if settings.DEBUG:

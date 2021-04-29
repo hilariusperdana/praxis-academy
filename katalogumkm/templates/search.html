@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if searched %}
+    <h1>you search for {{searched}}</h1>
+ <br/>
+    {%for Tambahproduk in tambahproduks%}
+        <a href="{% url 'listproduk' Tambahproduk.id %}">{{Tambahproduk}} - {{Tambahproduk.harga}}</a><br/>
+    {%endfor%}
+{% else %}
+    belum input lhoo
+{% endif %}
+{% endblock %}
