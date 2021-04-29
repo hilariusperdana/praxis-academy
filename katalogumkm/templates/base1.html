@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMKM</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #ffffff;">
+    
+        <a class="navbar-brand" href="#">katalog UMKM</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Penjual</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/produk">Produk</a>
+            </li>
+            
+            <li><a class="navbar-link" href="{% url 'akun:register' %}">Register</a></li>     
+          {# tambahkan beberapa logika untuk dikembangkan#}
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+              <li><a class="navbar-link" href="{% url 'akun:user_login' %}">Login</a></li>
+            {% endif %}
+            
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control ml-sm-2" type="search" placeholder="Search"  aria-label="Search">
+            <button class="btn btn-outline" type="submit"><i class="bi bi-search"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg></button>
+          </form>
+        </div>
+          
+    </nav>
+    <main class="container mt-3">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

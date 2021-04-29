@@ -49,3 +49,12 @@ def cardproduk(req):
         'data2': Cat,
     })
 
+def listpenjual(req):
+    pnj = Tambahpenjual.objects.all()
+    return render(req, 'katalog/listpenjual.html', { 
+        'data1': pnj,
+    })
+
+def about(req):
+    return render(req, 'katalog/about.html', { 
+    })

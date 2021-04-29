@@ -1,5 +1,8 @@
-{% extends "base.html" %}
-{% block content %}<div class="container">
+{%extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="container">
   <div class="jumbotron">
     
     {% if user.is_authenticated %}
@@ -11,4 +14,5 @@
         <h2>Silahkan Login atau Register.</h2>
     {% endif %}
   </div>
-</div>{% endblock %}
+</div>
+{% endblock %}
