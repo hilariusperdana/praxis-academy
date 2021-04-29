@@ -27,7 +27,7 @@ def listprodukcat(req, kategori):
 def hapus(req, id):
     dt = Tambahproduk.objects.get(id=id)
     dt.delete()
-    return redirect('/katalog')
+    return redirect('/produk')
 
 def hapuspnj(req, id):
     dt1 = Tambahpenjual.objects.get(id=id)
