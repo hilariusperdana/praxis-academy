@@ -1,6 +1,9 @@
 from django.db import models
 
 # Create your models here.
+from django.db import models
+
+# Create your models here.
 class Tambahpenjual(models.Model):
     nama_toko = models.CharField(max_length = 255)
     keterangan = models.CharField(max_length = 255)

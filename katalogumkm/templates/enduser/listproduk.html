@@ -1,0 +1,85 @@
+{%extends 'base.html'%}
+
+{% block content %}
+
+<h1>Isikan Data Barang Anda</h1> 
+
+<br></br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Penjual</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Tanggal</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Deskripsi</th>
+            {% comment %} <th scope="col">No Telepon</th> {% endcomment %}
+            <th scope="col">Harga</th>
+            <th scope="col">Gambar</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {%  for d in data %}
+        <tr>        
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{d.penjual}}</td>
+            <td>{{d.kategori}}</td>
+            <td>{{d.tanggal}}</td>
+            <td>{{d.nama}}</td>
+            <td>{{d.deskripsi}}</td>
+            {% comment %} <td>{{d.no_tlp}}</td> {% endcomment %}
+            <td>{{d.harga}}</td>
+            {% comment %} <td>{{d.foto}}</td> {% endcomment %}
+            <td>
+               {% if d.foto %}
+                  <img src="{{d.foto.url}}" width="40px"></img>
+               {% endif %}
+            </td>
+            {% comment %} <td><img src="{{d.foto}}"></td> {% endcomment %}
+            <td>
+                    
+            </td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <th scope="row"></th>
+        <td colspan="6"></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+{%  for d in data %}
+  <section class="fruit_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <hr>
+        <h2>
+            {{d.kategori}}
+        </h2>
+      </div>
+    </div>
+    <div class="container-fluid">
+      
+      <div class="fruit_container">
+        <div class="box">
+            {% if d.foto %}
+                <img src="{{d.foto.url}}" width="40px">
+            {% endif %}
+          <!-- <img src="static/images/f-1.jpg" alt=""> -->
+          <div class="link_box">
+            <h5>
+              Orange
+            </h5>
+            <a href="">
+              Buy Now
+            </a>
+          </div>
+        </div> 
+{%endfor%}
+{% endblock %}
+</body>
+</html>

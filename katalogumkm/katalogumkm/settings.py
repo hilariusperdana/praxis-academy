@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'produk',
     'crispy_forms',
     'akun',
+    'umkmmanagement',
+    'usermanagement',
+    'enduser',
 
     
 ]
