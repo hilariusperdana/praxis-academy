@@ -14,9 +14,9 @@ def index(request):
         data = {
             'bio': dt
         }
-        return render(request,'akun/index.html',data)
+        return render(request,'account/index.html',data)
     # print(dt.foto_profil)
-    return render(request,'akun/index.html')
+    return render(request,'account/index.html')
 
 # @login_required
 # def special(request):
@@ -49,7 +49,7 @@ def register(request):
     else:
         user_form = UserForm()
         profile_form = UserProfileInfoForm()
-    return render(request,'akun/register.html',
+    return render(request,'account/register.html',
                           {'user_form':user_form,
                            'profile_form':profile_form,
                            'registered':registered})
@@ -70,4 +70,4 @@ def user_login(request):
             print("They used username: {} and password: {}".format(username,password))
             return HttpResponse("Invalid login details given")
     else:
-        return render(request, 'akun/login.html', {})
+        return render(request, 'account/login.html', {})
