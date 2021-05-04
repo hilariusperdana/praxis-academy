@@ -12,10 +12,10 @@ def index(req):
 urlpatterns = [
     # path('', index),
     # path('market/', include('market.urls')),
-    path('', include('usermanagement.urls')),
-    path('', include('umkmmanagement.urls')),
+    path('mimin', include('usermanagement.urls')),
+    path('umkm', include('umkmmanagement.urls')),
     path('admin/', admin.site.urls),
-    path('', include('akun.urls')),
+    path('account', include('akun.urls')),
     path('', include('enduser.urls')),
     # url(r'^akun/',include('akun.urls')),
     url(r'^logout/$', views.user_logout, name='logout'),

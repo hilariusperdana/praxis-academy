@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from . import models
 from .models import Tambahproduk
 from .models import Tambahpenjual
 from .models import Category
@@ -40,14 +41,27 @@ def hapuskat(req, id):
     return redirect('/')
 
 def cardproduk(req):
-    register = Tambahproduk.objects.all()
-    pnj = Tambahpenjual.objects.all()
-    Cat = Category.objects.all()
-    return render(req, 'katalog/index.html', {
+    
+    group = req.user.groups.first()
+    if group is not None and group.name == 'usermanagement':
+        register = Tambahproduk.objects.all()
+        pnj = Tambahpenjual.objects.all()
+        Cat = Category.objects.all()
+    return render(req, 'katalog/index.html',{
         'data': register,
         'data1': pnj,
         'data2': Cat,
     })
+
+# def cardproduk(req):
+#     register = Tambahproduk.objects.all()
+#     pnj = Tambahpenjual.objects.all()
+#     Cat = Category.objects.all()
+#     return render(req, 'katalog/index.html', {
+#         'data': register,
+#         'data1': pnj,
+#         'data2': Cat,
+#     })
 
 def listpenjual(req):
     pnj = Tambahpenjual.objects.all()

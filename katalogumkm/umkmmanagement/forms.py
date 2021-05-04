@@ -1,7 +1,6 @@
 from django import forms
 from django.forms import ModelForm
 from .models import Tambahproduk
-from .models import Tambahpenjual
 from .models import Category
 from django.shortcuts import render, redirect
 

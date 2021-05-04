@@ -5,6 +5,25 @@ from django.db import models
 
 # Create your models here.
 
+class Tambahpenjual(models.Model):
+    nama_toko = models.CharField(max_length = 255)
+    keterangan = models.CharField(max_length = 255)
+    no_hp = models.CharField(max_length = 15)
+    foto_toko = models.ImageField(upload_to='toko/', blank=True)
+
+    def delete(self, *args, **kwargs):
+        self.foto_toko.delete()
+        super().delete(*args, **kwargs)
+
+    def __str__(self):
+        return self.nama_toko
+
+class Category(models.Model):
+    nama_Kategori = models.CharField(max_length = 255)
+
+    def __str__(self):
+        return self.nama_Kategori
+
 class Category(models.Model):
     nama_Kategori = models.CharField(max_length = 255)
 
@@ -28,5 +47,7 @@ class Tambahproduk(models.Model):
     
     def __str__(self):
         return self.nama
+
+
 
 
