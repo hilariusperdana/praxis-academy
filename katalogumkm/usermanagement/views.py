@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from . import models
+from . import models, forms
 from .models import Tambahproduk
 from .models import Tambahpenjual
 from .models import Category
@@ -41,6 +41,16 @@ def hapuskat(req, id):
     return redirect('/')
 
 def cardproduk(req):
+    register = Tambahproduk.objects.filter(owner=req.user)
+    pnj = Tambahpenjual.objects.all()
+    Cat = Category.objects.all()
+
+    if req.POST:
+        form_input = forms.PklForm(req.POST, req.FILES)
+        if form_input.is_valid():
+            form_input.instance.owner = req.user
+            form_input.save()            
+        return redirect('/')
     
     group = req.user.groups.first()
     if group is not None and group.name == 'usermanagement':

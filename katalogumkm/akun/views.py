@@ -71,3 +71,4 @@ def user_login(request):
             return HttpResponse("Invalid login details given")
     else:
         return render(request, 'akun/login.html', {})
+
