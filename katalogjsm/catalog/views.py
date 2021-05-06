@@ -81,7 +81,7 @@ def index(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return redirect('/')
+    return redirect('catalog:home')
 
 @unauthenticated_user
 def register(request):
@@ -119,7 +119,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return redirect('/')
+                return redirect('catalog:home_user')
             else:
                 return HttpResponse("Your account was inactive.")
         else:

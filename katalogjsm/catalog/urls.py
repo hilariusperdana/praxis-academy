@@ -1,7 +1,6 @@
 from django.urls import path
 
-from catalog import views
-from catalog import forms
+from catalog import views, forms
 from katalogjsm import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
@@ -11,7 +10,7 @@ app_name = 'catalog' # jangan lupa edit bagian ini, esuaikan app yang dibuat
 
 urlpatterns = [
 #urls usermanagement
-    path('',views.cardproduk, name='home'),
+    path('home_user',views.cardproduk, name='home_user'),
     path('produk',views.listproduk, name='listproduk'),
     path('listpenjual',views.listpenjual, name='listpenjual'),
     path('about',views.about, name='about'),
@@ -33,7 +32,7 @@ urlpatterns = [
     path('listpenjual_umkm',views.listpenjual_umkm, name='listpenjual_umkm'),
     
 #url enduser
-    path('home_user',views.cardproduk_user, name='home_user'),
+    path('',views.cardproduk_user, name='home'),
     path('produk_user',views.listproduk_user, name='listproduk_user'),
     path('listpenjual_user',views.listpenjual_user, name='listpenjual_user'),
     ]
