@@ -141,6 +141,15 @@ def cardproduk_umkm(req):
         'data1': pnj,
         'data2': Cat,
     })
+
+@login_required(login_url='user_login')
+@allowed_users(allowed_roles=['umkmmanagement'])
+def listproduk_umkm(req):
+    register = Tambahproduk.objects.all()
+    return render(req, 'umkmman/listproduk.html', {
+        'data': register,
+    })
+
 @login_required(login_url='user_login')
 @allowed_users(allowed_roles=['umkmmanagement'])
 def listpenjual_umkm(req):

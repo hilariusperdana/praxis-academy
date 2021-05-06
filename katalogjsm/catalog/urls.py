@@ -30,6 +30,7 @@ urlpatterns = [
 #url umkmmanagement
     path('home_umkm',views.cardproduk_umkm, name='home_umkm'),
     path('listpenjual_umkm',views.listpenjual_umkm, name='listpenjual_umkm'),
+    path('produk_umkm',views.listproduk, name='listproduk_umkm'),
     
 #url enduser
     path('',views.cardproduk_user, name='home'),

@@ -20,9 +20,9 @@ class FormTambahproduk(forms.ModelForm):
             form = FormTambahproduk(self.POST, self.FILES)
             if form.is_valid():
                 form.save()
-                return redirect('/katalog')
+                return redirect('/produk')
             #(form.errors)
-        return render(self, 'katalog/form.html',{
+        return render(self, 'catalog/form.html',{
             'form' : form,
         } )
     
@@ -33,8 +33,8 @@ class FormTambahproduk(forms.ModelForm):
             form=FormTambahproduk(self.POST, self.FILES, instance=data)
             if form.is_valid():
                 form.save()
-            return redirect('/katalog')
-        return render(self,'katalog/form.html', {'form':form})
+            return redirect('/produk')
+        return render(self,'catalog/form.html', {'form':form})
 
 class FormPenjual(forms.ModelForm):
     class Meta:
@@ -47,9 +47,9 @@ class FormPenjual(forms.ModelForm):
             form = FormPenjual(self.POST, self.FILES)
             if form.is_valid():
                 form.save()
-                return redirect('/Form')
+                return redirect('/form')
             #(form.errors)
-        return render(self, 'katalog/form.html',{
+        return render(self, 'catalog/form.html',{
             'form' : form,
         } )
     
@@ -60,8 +60,8 @@ class FormPenjual(forms.ModelForm):
             form=FormPenjual(self.POST, self.FILES, instance=data)
             if form.is_valid():
                 form.save()
-            return redirect('/')
-        return render(self,'katalog/form.html', {'form':form})
+            return redirect('/home_user')
+        return render(self,'catalog/form.html', {'form':form})
 
 class FormCategory(forms.ModelForm):
     class Meta:
@@ -74,9 +74,9 @@ class FormCategory(forms.ModelForm):
             form = FormCategory(self.POST, self.FILES)
             if form.is_valid():
                 form.save()
-                return redirect('/')
+                return redirect('/home_user')
             #(form.errors)
-        return render(self, 'katalog/form.html',{
+        return render(self, 'catalog/form.html',{
             'form' : form,
         } )
 
