@@ -1,0 +1,115 @@
+{%extends 'base.html'%}
+
+{% block content %}
+<section class="nav_section">
+  <div class="container">
+    <div class="custom_nav2">
+      <nav class="navbar navbar-expand custom_nav-container ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-flex  flex-column flex-lg-row align-items-center">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/listpenjual">Seller</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/produk">Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'catalog:register' %}">Register</a>
+              </li>               
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a href="{% url 'catalog:logout' %}">Logout</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'catalog:user_login' %}">Login</a>
+                </li>
+              {% endif %}
+              
+            </ul>
+            <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0" method=POST action="{}">
+              {%csrf_token%}
+              <input class="form-control mr-sm-2" type="search" placeholder="Search produk" aria-label="Search" name="searched">
+              <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<div class="row">{{forloop.counter}}
+    {% for d2 in data2 %}
+    <div class="col-lg-3">
+    <div class="card mx-0 px-1">
+         <div class="box-element product" style="height: 100px;"> 
+            <a href="/produk/ctr/{{ d2.nama_Kategori }}">
+                <center><h6><b width="40px">{{ d2.nama_Kategori }}</b></h6></center>
+            </a>  
+            <!-- <a href="hapuskat/{{ d2.id }}">
+                <button type="button" class="btn btn-default">yaaaaa</button>
+            </a> 
+         -->
+        </div>
+    </div>
+    </div> 
+    <br></br>
+    {% endfor %}
+    </div> 
+    
+    <br/>
+    {% comment %} Halaman daftar penjual harusnya {% endcomment %}
+
+   
+
+<a href="/kategori">
+   <center><button type="button" class="btn btn-success">tambah Kategori</button>
+</a> 
+
+
+<br></br>
+
+<section class="shop_section layout_padding">
+    <div class="container">
+      <div class="box">
+        <div class="detail-box">
+          <h2>
+            Fruit shop
+          </h2>
+          <p>
+            There are many variations of passages of Lorem Ipsum available
+          </p>
+        </div>
+        <div class="img-box">
+          <img src="static/images/shop-img.jpg" alt="">
+        </div>
+        <div class="btn-box">
+          <a href="">
+            Buy Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    
+
+
+
+{% endblock %} 
