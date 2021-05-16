@@ -94,52 +94,31 @@
   </div>
 </section>
 
-<div class="row">{{forloop.counter}}
+
+
+<section class="fruit_section layout_padding">
+  <div class="container">
+    <center><h2>Categories</h2></center>
+  </div>
+  <div class="container-fluid">{{forloop.counter}}
     {% for d2 in data2 %}
-    <div class="col-lg-3">
-    <div class="card mx-0 px-1">
-         <div class="box-element product" style="height: 100px;"> 
-            <a href="/produk/ctr/{{ d2.nama_Kategori }}">
-                <center><h6><b width="40px">{{ d2.nama_Kategori }}</b></h6></center>
-            </a>  
-            <!-- <a href="hapuskat/{{ d2.id }}">
-                <button type="button" class="btn btn-default">yaaaaa</button>
-            </a> 
-         -->
-        </div>
-    </div>
-    </div> 
-    <br></br>
-    {% endfor %}
-    </div> 
-    
-    <br/>
-    {% comment %} Halaman daftar penjual harusnya {% endcomment %}
-
-
-<br></br>
-
-<section class="shop_section layout_padding">
-    <div class="container">
+    <div class="fruit_container">
       <div class="box">
-        <div class="detail-box">
-          <h2>
-            Fruit shop
-          </h2>
-          <p>
-            There are many variations of passages of Lorem Ipsum available
-          </p>
-        </div>
-        <div class="img-box">
-          <img src="static/images/shop-img.jpg" alt="">
-        </div>
-        <div class="btn-box">
-          <a href="">
-            Buy Now
+        {% if d2.foto_Kategori %}
+          <img src="{{ d2.foto_Kategori.url }}" alt="">
+        {% endif %}
+        <!-- <img src="static/images/f-1.jpg" alt=""> -->
+        <div class="link_box">
+          <h5>
+            {{ d2.nama_Kategori }}
+          </h5>
+          <a href="/produk/ctr/{{ d2.nama_Kategori }}">
+            See {{ d2.nama_Kategori }}
           </a>
         </div>
-      </div>
+      </div>  {% endfor %}    
     </div>
-  </section>
+  </div>
+</section>
 
 {% endblock %} 

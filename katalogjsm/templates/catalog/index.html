@@ -57,10 +57,20 @@
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
+                {% if group %}
                 <a class="nav-link" href="/listpenjual">Seller</a>
+                {% else %}
+                <a class="nav-link" href="/listpenjual_umkm">Product</a>
+                {% endif %}
+                
               </li>
               <li class="nav-item">
+                {% if group %}
                 <a class="nav-link" href="/produk">Product</a>
+                {% else %}
+                <a class="nav-link" href="/produk_umkm">Product</a>
+                {% endif %}
+                
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/about">About </a>
@@ -68,9 +78,9 @@
               <!-- <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact Us</a>
               </li> -->
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="{% url 'catalog:register' %}">Register</a>
-              </li>               
+              </li>                -->
               {% if user.is_authenticated %}
                 <li class="nav-item">
                   <a href="{% url 'catalog:logout' %}">Logout</a>
@@ -80,6 +90,7 @@
                   <a class="nav-link" href="{% url 'catalog:user_login' %}">Login</a>
                 </li>
               {% endif %}
+              
               
             </ul>
             <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0" method=POST action="{}">
@@ -92,65 +103,76 @@
       </nav>
     </div>
   </div>
-</section>
+</section> 
 
-<div class="row">{{forloop.counter}}
-    {% for d2 in data2 %}
-    <div class="col-lg-3">
-    <div class="card mx-0 px-1">
-         <div class="box-element product" style="height: 100px;"> 
-            <a href="/produk/ctr/{{ d2.nama_Kategori }}">
-                <center><h6><b width="40px">{{ d2.nama_Kategori }}</b></h6></center>
-            </a>  
-            <!-- <a href="hapuskat/{{ d2.id }}">
-                <button type="button" class="btn btn-default">yaaaaa</button>
-            </a> 
-         -->
-        </div>
-    </div>
-    </div> 
-    <br></br>
-    {% endfor %}
-    </div> 
-    
-    <br/>
-    {% comment %} Halaman daftar penjual harusnya {% endcomment %}
-
-   
-
-<a href="/kategori">
-   <center><button type="button" class="btn btn-success">tambah Kategori</button>
-</a> 
 
 
 <br></br>
 
-<section class="shop_section layout_padding">
-    <div class="container">
-      <div class="box">
-        <div class="detail-box">
-          <h2>
-            Fruit shop
-          </h2>
-          <p>
-            There are many variations of passages of Lorem Ipsum available
-          </p>
-        </div>
-        <div class="img-box">
-          <img src="static/images/shop-img.jpg" alt="">
-        </div>
-        <div class="btn-box">
-          <a href="">
-            Buy Now
-          </a>
-        </div>
+
+  <center><h2>Categories</h2></center>
+  <div class="row">{{forloop.counter}}
+    {% for d2 in data2 %}
+    <div class="col-lg-3">
+      <div class="box-element product"> 
+        <section class="shop_section layout_padding">
+          <div class="container">
+            <div class="box">
+              <a href="hapuskat/{{ d2.id }}">
+                <i class="bi bi-x-lg" style="padding-left: 200px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg></i>
+              </a>         
+              <div class="img-box">
+                {% if d2.foto_Kategori %}
+                  <center><img src="{{ d2.foto_Kategori.url }}" width="250px"></center>
+                {% endif %}
+                <!-- <img src="static/images/shop-img.jpg" alt=""> -->
+              </div>
+              <div class="btn-box">
+                <a href="/produk/ctr/{{ d2.nama_Kategori }}">
+                  <center><h6><b width="40px">{{ d2.nama_Kategori }}</b></h6></center>
+                </a>  
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
-  </section>
+    {% endfor %}
+  </div>
+<br></br>
 
 
-    
+<div>
+  <a href="/kategori">
+    <center><button type="button" class="btn btn-success">tambah Kategori</button></center>
+  </a> 
+</div>
 
 
-
+<section class="fruit_section layout_padding">
+  <div class="container">
+    <center><h2>Categories</h2></center>
+  </div>
+  <div class="container-fluid">{{forloop.counter}}
+    {% for d2 in data2 %}
+    <div class="fruit_container">
+      <div class="box">
+        {% if d2.foto_Kategori %}
+          <img src="{{ d2.foto_Kategori.url }}" alt="">
+        {% endif %}
+        <!-- <img src="static/images/f-1.jpg" alt=""> -->
+        <div class="link_box">
+          <h5>
+            {{ d2.nama_Kategori }}
+          </h5>
+          <a href="/produk/ctr/{{ d2.nama_Kategori }}">
+            See {{ d2.nama_Kategori }}
+          </a>
+        </div>
+      </div>  {% endfor %}    
+    </div>
+  </div>
+</section>
 {% endblock %} 

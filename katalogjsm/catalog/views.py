@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 
 # Create your views here.
 from .forms import UserForm, UserProfileInfoForm
@@ -14,8 +14,10 @@ from .decorators import unauthenticated_user, allowed_users, admin_only
 
 def listproduk(req):
     register = Tambahproduk.objects.all()
+    group1 = req.user.groups.filter(name='usermanagement').exists()
     return render(req, 'catalog/listproduk.html', {
         'data': register,
+        'group1': group1,
     })
 
 def listprodukpnj(req, penjual):
@@ -30,10 +32,16 @@ def listprodukcat(req, kategori):
         'data': register,
     })
 
+def detailproduk(req, kategori):
+    register = Tambahproduk.objects.filter(id=id).first()
+    return render(req, 'catalog/detailproduk.html', {
+        'data': register,
+    })
+
 def hapus(req, id):
     dt = Tambahproduk.objects.get(id=id)
     dt.delete()
-    return redirect('/catalog')
+    return redirect('/produk')
 
 def hapuspnj(req, id):
     dt1 = Tambahpenjual.objects.get(id=id)
@@ -43,7 +51,7 @@ def hapuspnj(req, id):
 def hapuskat(req, id):
     dt2 = Category.objects.get(id=id)
     dt2.delete()
-    return redirect('/')
+    return redirect('/home_user')
 @login_required
 # @allowed_users(allowed_roles=['usermanagement'])
 @admin_only
@@ -51,10 +59,14 @@ def cardproduk(req):
     register = Tambahproduk.objects.all()
     pnj = Tambahpenjual.objects.all()
     Cat = Category.objects.all()
+    # x = req.user.groups.values_list('name', flat=True).first()
+    group = req.user.groups.filter(name='usermanagement').exists() ## admin
+    
     return render(req, 'catalog/index.html', {
         'data': register,
         'data1': pnj,
         'data2': Cat,
+        'group': group,
     })
 @login_required(login_url='user_login')
 @allowed_users(allowed_roles=['usermanagement'])
@@ -136,7 +148,8 @@ def cardproduk_umkm(req):
     register = Tambahproduk.objects.all()
     pnj = Tambahpenjual.objects.all()
     Cat = Category.objects.all()
-    return render(req, 'umkmman/index.html', {
+    # group2 = req.user.groups.filter(name='umkmmanagement').exists() ##
+    return render(req, 'catalog/index.html', {
         'data': register,
         'data1': pnj,
         'data2': Cat,

@@ -17,6 +17,11 @@ class Tambahpenjual(models.Model):
 
 class Category(models.Model):
     nama_Kategori = models.CharField(max_length = 255)
+    foto_Kategori = models.ImageField(upload_to='kategori/', blank=True)
+
+    def delete(self, *args, **kwargs):
+        self.foto_Kategori.delete()
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return self.nama_Kategori

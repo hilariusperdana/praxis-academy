@@ -12,6 +12,7 @@ urlpatterns = [
 #urls usermanagement
     path('home_user',views.cardproduk, name='home_user'),
     path('produk',views.listproduk, name='listproduk'),
+    path('detailproduk/<int:id>',views.detailproduk),
     path('listpenjual',views.listpenjual, name='listpenjual'),
     path('about',views.about, name='about'),
     path('hapus/<int:id>',views.hapus),
@@ -30,7 +31,7 @@ urlpatterns = [
 #url umkmmanagement
     path('home_umkm',views.cardproduk_umkm, name='home_umkm'),
     path('listpenjual_umkm',views.listpenjual_umkm, name='listpenjual_umkm'),
-    path('produk_umkm',views.listproduk, name='listproduk_umkm'),
+    path('produk_umkm',views.listproduk_umkm, name='listproduk_umkm'),
     
 #url enduser
     path('',views.cardproduk_user, name='home'),

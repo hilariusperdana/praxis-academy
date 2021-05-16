@@ -46,10 +46,18 @@
                       <a class="nav-link" href="/home_user">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
+                      {% if group1 %}
                       <a class="nav-link" href="/listpenjual">Seller</a>
+                      {% else %}
+                      <a class="nav-link" href="/listpenjual_umkm">Seller</a>
+                      {% endif %}
                     </li>
                     <li class="nav-item">
+                      {% if group %}
+                      <a class="nav-link" href="/produk_umkm">Product</a>
+                      {% else %}
                       <a class="nav-link" href="/produk">Product</a>
+                      {% endif %}
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/about">About </a>
@@ -57,9 +65,9 @@
                     <!-- <li class="nav-item">
                       <a class="nav-link" href="contact.html">Contact Us</a>
                     </li> -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a class="nav-link" href="{% url 'catalog:register' %}">Register</a>
-                    </li>               
+                    </li>                -->
                     {% if user.is_authenticated %}
                       <li class="nav-item">
                         <a href="{% url 'catalog:logout' %}">Logout</a>

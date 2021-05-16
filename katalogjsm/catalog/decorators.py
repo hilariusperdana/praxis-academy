@@ -39,3 +39,17 @@ def admin_only(view_func):
 
 	return wrapper_function
 
+# def admin_produk(view_func):
+# 	def wrapper_function(request, *args, **kwargs):
+# 		group = None
+# 		if request.user.groups.exists():
+# 			group = request.user.groups.all()[0].name
+
+# 		if group == 'umkmmanagement':
+# 			return redirect('/form')
+
+# 		if group == 'usermanagement':
+# 			return view_func(request, *args, **kwargs)
+
+# 	return wrapper_function
+
