@@ -1,21 +1,22 @@
 {%extends 'base_enduser.html'%}
 {% block content %}
-<div class="row">{{forloop.counter}}
+
+<div class="row" style="margin-top: 100px; margin-bottom:100px">{{forloop.counter}}
     {% for d1 in data1 %}
     <div class="col-lg-3">
     <div class="card mx-0 px-1">
         {% if d1.foto_toko %}
-            <center><img class="thumbnail" src="{{ d1.foto_toko.url }}" width="150px"></center>
+            <center><img class="thumbnail" src="{{ d1.foto_toko.url }}" width="250px"></center>
         {% endif %}
         <div class="box-element product">
             <h6>
             {% comment %} {% for d in data %} {% endcomment %}
                 <a href="/produk/{{ d1.nama_toko }}">
-                    <b width="40px">{{ d1.nama_toko }}</b>
+                    <b width="30px">{{ d1.nama_toko }}</b>
                 </a>
             {% comment %} {% endfor %} {% endcomment %}
             </h6>
-            <center><h6><b width="40px">{{ d1.keterangan }}</b></h6></center>
+            <center><h6><b width="30px">{{ d1.keterangan }}</b></h6></center>
             <a href="https://wa.me/{{d1.no_hp}}?text=Saya%20tertarik%20dengan%20barang%20%20yang%20anda%20jual">
                 <button class="btn btn-outline-secondary add-btn">Hubungi Penjual</button>
             </a>   

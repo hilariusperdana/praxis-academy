@@ -46,7 +46,7 @@ def hapus(req, id):
 def hapuspnj(req, id):
     dt1 = Tambahpenjual.objects.get(id=id)
     dt1.delete()
-    return redirect('/')
+    return redirect('/listpenjual')
 
 def hapuskat(req, id):
     dt2 = Category.objects.get(id=id)

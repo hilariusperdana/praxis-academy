@@ -60,7 +60,7 @@
                 {% if group %}
                 <a class="nav-link" href="/listpenjual">Seller</a>
                 {% else %}
-                <a class="nav-link" href="/listpenjual_umkm">Product</a>
+                <a class="nav-link" href="/listpenjual_umkm">Seller</a>
                 {% endif %}
                 
               </li>
@@ -153,22 +153,22 @@
 
 <section class="fruit_section layout_padding">
   <div class="container">
-    <center><h2>Categories</h2></center>
+    <center><h1 style="font-size: 80px;">Categories</h1></center>
   </div>
   <div class="container-fluid">{{forloop.counter}}
-    {% for d2 in data2 %}
     <div class="fruit_container">
+      {% for d2 in data2 %}
       <div class="box">
         {% if d2.foto_Kategori %}
-          <img src="{{ d2.foto_Kategori.url }}" alt="">
+          <img src="{{ d2.foto_Kategori.url }}" style="width: 300px;">
         {% endif %}
         <!-- <img src="static/images/f-1.jpg" alt=""> -->
-        <div class="link_box">
+        <div class="link_box" style="width: 300px;">
           <h5>
             {{ d2.nama_Kategori }}
           </h5>
           <a href="/produk/ctr/{{ d2.nama_Kategori }}">
-            See {{ d2.nama_Kategori }}
+            Lihat {{ d2.nama_Kategori }}
           </a>
         </div>
       </div>  {% endfor %}    
