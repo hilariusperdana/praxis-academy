@@ -27,6 +27,7 @@ urlpatterns = [
     path('register/',views.register,name='register'),
     path('catalog/user_login/',views.user_login,name="user_login"),
     path('logout', views.user_logout, name='logout'),
+    path('search', views.search, name='search'),
 
 #url umkmmanagement
     path('home_umkm',views.cardproduk_umkm, name='home_umkm'),
@@ -38,5 +39,7 @@ urlpatterns = [
     path('produk_user',views.listproduk_user, name='listproduk_user'),
     path('listpenjual_user',views.listpenjual_user, name='listpenjual_user'),
     ]
+
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

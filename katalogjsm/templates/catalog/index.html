@@ -17,17 +17,17 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="img-box">
-            <img src="static/images/slider-img.jpg" alt="">
+            <img src="static/images/iklan.png" alt="">
           </div>
         </div>
         <div class="carousel-item">
           <div class="img-box">
-            <img src="static/images/slider-img.jpg" alt="">
+            <img src="static/images/iklan-2.png" alt="">
           </div>
         </div>
         <div class="carousel-item">
           <div class="img-box">
-            <img src="static/images/slider-img.jpg" alt="">
+            <img src="static/images/iklan-3.png" alt="">
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
               </li>                -->
               {% if user.is_authenticated %}
                 <li class="nav-item">
-                  <a href="{% url 'catalog:logout' %}">Logout</a>
+                  <a class="nav-link" href="{% url 'catalog:logout' %}">Logout</a>
                 </li>
               {% else %}
                 <li class="nav-item">
@@ -106,51 +106,6 @@
 </section> 
 
 
-
-<br></br>
-
-
-  <center><h2>Categories</h2></center>
-  <div class="row">{{forloop.counter}}
-    {% for d2 in data2 %}
-    <div class="col-lg-3">
-      <div class="box-element product"> 
-        <section class="shop_section layout_padding">
-          <div class="container">
-            <div class="box">
-              <a href="hapuskat/{{ d2.id }}">
-                <i class="bi bi-x-lg" style="padding-left: 200px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="" class="bi bi-x-lg" viewBox="0 0 16 16">
-                  <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
-                </svg></i>
-              </a>         
-              <div class="img-box">
-                {% if d2.foto_Kategori %}
-                  <center><img src="{{ d2.foto_Kategori.url }}" width="250px"></center>
-                {% endif %}
-                <!-- <img src="static/images/shop-img.jpg" alt=""> -->
-              </div>
-              <div class="btn-box">
-                <a href="/produk/ctr/{{ d2.nama_Kategori }}">
-                  <center><h6><b width="40px">{{ d2.nama_Kategori }}</b></h6></center>
-                </a>  
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-<br></br>
-
-
-<div>
-  <a href="/kategori">
-    <center><button type="button" class="btn btn-success">tambah Kategori</button></center>
-  </a> 
-</div>
-
-
 <section class="fruit_section layout_padding">
   <div class="container">
     <center><h1 style="font-size: 80px;">Categories</h1></center>
@@ -160,7 +115,7 @@
       {% for d2 in data2 %}
       <div class="box">
         {% if d2.foto_Kategori %}
-          <img src="{{ d2.foto_Kategori.url }}" style="width: 300px;">
+        <img src="{{ d2.foto_Kategori.url }}" style="width: 300px;">
         {% endif %}
         <!-- <img src="static/images/f-1.jpg" alt=""> -->
         <div class="link_box" style="width: 300px;">
@@ -175,4 +130,9 @@
     </div>
   </div>
 </section>
+<div>
+  <a href="/kategori">
+    <center><button type="button" class="btn btn-success">tambah Kategori</button></center>
+  </a> 
+</div>
 {% endblock %} 

@@ -17,17 +17,17 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="img-box">
-            <img src="static/images/slider-img.jpg" alt="">
+            <img src="static/images/iklan.png" alt="">
           </div>
         </div>
         <div class="carousel-item">
           <div class="img-box">
-            <img src="static/images/slider-img.jpg" alt="">
+            <img src="static/images/iklan-2.png" alt="">
           </div>
         </div>
         <div class="carousel-item">
           <div class="img-box">
-            <img src="static/images/slider-img.jpg" alt="">
+            <img src="static/images/iklan-3.png" alt="">
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@
               </li>               
               {% if user.is_authenticated %}
                 <li class="nav-item">
-                  <a href="{% url 'catalog:logout' %}">Logout</a>
+                  <a class="nav-link" href="{% url 'catalog:logout' %}">Logout</a>
                 </li>
               {% else %}
                 <li class="nav-item">
@@ -82,7 +82,7 @@
               {% endif %}
               
             </ul>
-            <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0" method=POST action="{}">
+            <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0" method=POST action="{% url 'catalog:search' %}">
               {%csrf_token%}
               <input class="form-control mr-sm-2" type="search" placeholder="Search produk" aria-label="Search" name="searched">
               <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>

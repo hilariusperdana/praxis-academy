@@ -140,3 +140,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # update auth pada setting
 LOGIN_URL = 'catalog/user_login/'
 # end
+SESSION_COOKIE_AGE = 10 * 60
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

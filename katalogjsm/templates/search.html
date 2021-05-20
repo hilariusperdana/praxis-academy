@@ -1,0 +1,16 @@
+
+{% if searched %}
+    nggoleki opo lee
+    {{searched}}
+
+
+    <br/>
+    {% for d in data %}
+<!-- isi link detail produk -->
+    <a href="/produk_user">
+        {{ d }} - {{d.harga}}</a><br/>
+
+    {% endfor %}
+{% else %}
+    belum input lhoo
+{% endif %}

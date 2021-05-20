@@ -12,6 +12,19 @@ from .decorators import unauthenticated_user, allowed_users, admin_only
 
 #USERMAN VIEW
 
+def search (req):
+    if req.method == "POST":
+        searched = req.POST['searched']
+        register = Tambahproduk.objects.filter(nama__contains=searched)
+
+        return render(req, 'search.html', {
+            'searched': searched,
+            'data': register,
+        })
+    else:
+        return render(req, 'search.html', {
+        })
+
 def listproduk(req):
     register = Tambahproduk.objects.all()
     group1 = req.user.groups.filter(name='usermanagement').exists()
@@ -182,7 +195,7 @@ def index_umkm(request):
     return render(request,'umkmman/index.html')
 
 #ENDUSER VIEWS
-@unauthenticated_user
+
 def cardproduk_user(req):
     register = Tambahproduk.objects.all()
     pnj = Tambahpenjual.objects.all()

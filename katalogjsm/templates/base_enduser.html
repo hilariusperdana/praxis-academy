@@ -62,7 +62,7 @@
                     </li>               
                     {% if user.is_authenticated %}
                       <li class="nav-item">
-                        <a href="{% url 'catalog:logout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'catalog:logout' %}">Logout</a>
                       </li>
                     {% else %}
                       <li class="nav-item">
