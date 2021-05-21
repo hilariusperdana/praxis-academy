@@ -45,9 +45,9 @@ def listprodukcat(req, kategori):
         'data': register,
     })
 
-def detailproduk(req, kategori):
-    register = Tambahproduk.objects.filter(id=id).first()
-    return render(req, 'catalog/detailproduk.html', {
+def detailproduk(req, id):
+    register = Tambahproduk.objects.filter(id=id)
+    return render(req, 'detailproduk.html', {
         'data': register,
     })
 

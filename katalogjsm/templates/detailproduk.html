@@ -1,0 +1,12 @@
+
+{% for d in data %}
+kategori: {{d.kategori}}
+{% if d.foto %}
+<img src="{{d.foto.url}}" width="40px"></img>
+{% endif %}
+{{d.nama}}
+{{d.penjual}}
+{{d.deskripsi}}
+
+{% endfor %}
+
